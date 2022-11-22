@@ -1,0 +1,71 @@
+{
+    "name": "unet",
+    "description": " on CIFAR10",
+    "version": "0.1.0",
+    "author": "Mate",
+    "authors": [],
+    "license": "MIT",
+    "url": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/unet/trainers/unet_trainer/",
+    "exports": {
+        "classes": [],
+        "functions": [
+            {
+                "function_name": "train",
+                "module": "trainers.unet_trainer",
+                "params": {
+                    "net": {
+                        "class": "Module",
+                        "module": "torch.nn.modules.module"
+                    },
+                    "dataset": {
+                        "class": "Dataset",
+                        "module": "torch.utils.data.dataset"
+                    },
+                    "epochs": 5,
+                    "batch_size": 1,
+                    "learning_rate": 1e-05,
+                    "val_percent": 0.1,
+                    "save_checkpoint": true,
+                    "img_scale": 0.5,
+                    "amp": false
+                },
+                "errors": [
+                    "Missing parameter net.  Hint: <class 'torch.nn.modules.module.Module'>",
+                    "Missing parameter dataset.  Hint: <class 'torch.utils.data.dataset.Dataset'>"
+                ]
+            }
+        ]
+    },
+    "category": "",
+    "backbone": "",
+    "module_path": [
+        "trainers",
+        "unet_trainer"
+    ],
+    "hash": "dca08a91cc7a0996b4f92eae9af8f44903f164d5",
+    "type": "trainers",
+    "dependencies": {
+        "pip": [
+            {
+                "name": "wandb",
+                "version": "0.13.5",
+                "last_version": "0.13.5"
+            },
+            {
+                "name": "tqdm",
+                "version": "4.64.1",
+                "last_version": "4.64.1"
+            },
+            {
+                "name": "torch",
+                "version": "1.13.0",
+                "last_version": "1.13.0"
+            },
+            {
+                "name": "matplotlib",
+                "version": "3.6.2",
+                "last_version": "3.6.2"
+            }
+        ]
+    }
+}

@@ -1,3 +1,68 @@
 {
-    "project": "unetplusplus"
+    "project": "unetplusplus",
+    "mate_version": "1.0.0",
+    "results_folder": "./results",
+    "override_params": {},
+    "restarting": false,
+    "metadata": {
+        "name": "",
+        "description": "",
+        "version": "",
+        "author": "",
+        "authors": [],
+        "license": "",
+        "url": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/",
+        "experiments": [
+            "carvana_unet",
+            "carvana",
+            "carvana_unetplusplus"
+        ],
+        "dependencies": {
+            "pip": [
+                {
+                    "name": "matplotlib",
+                    "version": "3.6.2"
+                },
+                {
+                    "name": "torch",
+                    "version": "1.13.0"
+                },
+                {
+                    "name": "numpy",
+                    "version": "1.23.4"
+                },
+                {
+                    "name": "tqdm",
+                    "version": "4.64.1"
+                },
+                {
+                    "name": "wandb",
+                    "version": "0.13.5"
+                },
+                {
+                    "name": "ipdb",
+                    "version": "0.13.9"
+                }
+            ]
+        },
+        "exports": {
+            "data": {
+                "loaders": {
+                    "carvana": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/unet/data/loaders/carvana/"
+                }
+            },
+            "experiments": {
+                "carvana_unet": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/",
+                "carvana": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/",
+                "carvana_unetplusplus": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/"
+            },
+            "trainers": {
+                "unet_trainer": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/unetplusplus/trainers/unet_trainer/"
+            },
+            "models": {
+                "unet": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/unet/models/unet/",
+                "unetplusplus": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/unetplusplus/models/unetplusplus/"
+            }
+        }
+    }
 }

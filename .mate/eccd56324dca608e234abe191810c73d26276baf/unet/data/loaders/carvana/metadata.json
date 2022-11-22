@@ -1,0 +1,126 @@
+{
+    "name": "unet",
+    "description": " on CIFAR10",
+    "version": "0.1.0",
+    "author": "Mate",
+    "authors": [],
+    "license": "MIT",
+    "url": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/unet/data/loaders/carvana/",
+    "exports": {
+        "classes": [
+            {
+                "class_name": "CarvanaDataset",
+                "module": "data.loaders.carvana",
+                "params": {
+                    "images_dir": {
+                        "type": "unknown",
+                        "description": "Unknown type, please add a type annotation or sample value"
+                    },
+                    "masks_dir": {
+                        "type": "unknown",
+                        "description": "Unknown type, please add a type annotation or sample value"
+                    },
+                    "scale": 1
+                },
+                "samples": [
+                    {
+                        "sample": {
+                            "class_name": "CarvanaDataset",
+                            "module": "data.loaders.carvana.carvana",
+                            "object_key": "train_dataset",
+                            "params": {
+                                "images_dir": "./train",
+                                "masks_dir": "./train_masks"
+                            }
+                        },
+                        "experiment": {
+                            "objects": {
+                                "net": {
+                                    "class_name": "UNet",
+                                    "module": "models.unet.unet_model",
+                                    "object_key": "net",
+                                    "params": {
+                                        "n_channels": 3,
+                                        "n_classes": 2
+                                    }
+                                },
+                                "train_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "train_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                },
+                                "test_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "test_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                }
+                            },
+                            "experiment": {
+                                "train": [
+                                    {
+                                        "function": "train",
+                                        "module": "trainers.unet_trainer.trainer",
+                                        "params": {
+                                            "net": "{net}",
+                                            "dataset": "{train_dataset}"
+                                        }
+                                    }
+                                ],
+                                "test": [
+                                    {
+                                        "function": "test",
+                                        "module": "trainers.unet_trainer.evaluate",
+                                        "params": {
+                                            "model_class": {
+                                                "class_type": "UNet",
+                                                "module": "models.unet.unet_model",
+                                                "params": {}
+                                            },
+                                            "dataset": "{test_dataset}"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "errors": [
+                    "Missing parameter images_dir. Hint: Add a default value or type annotation",
+                    "Missing parameter masks_dir. Hint: Add a default value or type annotation"
+                ]
+            }
+        ],
+        "functions": []
+    },
+    "category": "",
+    "backbone": "",
+    "module_path": [
+        "data",
+        "loaders",
+        "carvana"
+    ],
+    "hash": "fd843bd725f0448f63d777a5b49e77a218526864",
+    "type": "data",
+    "dependencies": {
+        "pip": [
+            {
+                "name": "numpy",
+                "version": "1.23.4",
+                "last_version": "1.23.5"
+            },
+            {
+                "name": "torch",
+                "version": "1.13.0",
+                "last_version": "1.13.0"
+            }
+        ]
+    }
+}

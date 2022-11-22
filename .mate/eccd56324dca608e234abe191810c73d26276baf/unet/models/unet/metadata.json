@@ -1,0 +1,120 @@
+{
+    "name": "unet",
+    "description": " on CIFAR10",
+    "version": "0.1.0",
+    "author": "Mate",
+    "authors": [],
+    "license": "MIT",
+    "url": "https//github.com/ilex-paraguariensis/examples/tree/main/pytorch-lightning/resnet-cifar10/unet/models/unet/",
+    "exports": {
+        "classes": [
+            {
+                "class_name": "UNet",
+                "module": "models.unet",
+                "params": {
+                    "n_channels": {
+                        "type": "unknown",
+                        "description": "Unknown type, please add a type annotation or sample value"
+                    },
+                    "n_classes": {
+                        "type": "unknown",
+                        "description": "Unknown type, please add a type annotation or sample value"
+                    },
+                    "bilinear": false
+                },
+                "samples": [
+                    {
+                        "sample": {
+                            "class_name": "UNet",
+                            "module": "models.unet.unet_model",
+                            "object_key": "net",
+                            "params": {
+                                "n_channels": 3,
+                                "n_classes": 2
+                            }
+                        },
+                        "experiment": {
+                            "objects": {
+                                "net": {
+                                    "class_name": "UNet",
+                                    "module": "models.unet.unet_model",
+                                    "object_key": "net",
+                                    "params": {
+                                        "n_channels": 3,
+                                        "n_classes": 2
+                                    }
+                                },
+                                "train_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "train_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                },
+                                "test_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "test_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                }
+                            },
+                            "experiment": {
+                                "train": [
+                                    {
+                                        "function": "train",
+                                        "module": "trainers.unet_trainer.trainer",
+                                        "params": {
+                                            "net": "{net}",
+                                            "dataset": "{train_dataset}"
+                                        }
+                                    }
+                                ],
+                                "test": [
+                                    {
+                                        "function": "test",
+                                        "module": "trainers.unet_trainer.evaluate",
+                                        "params": {
+                                            "model_class": {
+                                                "class_type": "UNet",
+                                                "module": "models.unet.unet_model",
+                                                "params": {}
+                                            },
+                                            "dataset": "{test_dataset}"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "errors": [
+                    "Missing parameter n_channels. Hint: Add a default value or type annotation",
+                    "Missing parameter n_classes. Hint: Add a default value or type annotation"
+                ]
+            }
+        ],
+        "functions": []
+    },
+    "category": "",
+    "backbone": "",
+    "module_path": [
+        "models",
+        "unet"
+    ],
+    "hash": "038ae1fe7198ee0563bc7ee963302903331af1e6",
+    "type": "models",
+    "dependencies": {
+        "pip": [
+            {
+                "name": "torch",
+                "version": "1.13.0",
+                "last_version": "1.13.0"
+            }
+        ]
+    }
+}
