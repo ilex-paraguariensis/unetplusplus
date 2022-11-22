@@ -1,0 +1,41 @@
+[experiment]
+[[experiment.train]]
+function = "train"
+module = "trainers.unet_trainer.trainer"
+
+[experiment.train.params]
+net = "{net}"
+dataset = "{train_dataset}"
+[[experiment.test]]
+function = "test"
+module = "trainers.unet_trainer.evaluate"
+
+[experiment.test.params]
+dataset = "{test_dataset}"
+[experiment.test.params.model_class]
+class_type = "UNet"
+module = "models.unet.unet_model"
+
+[objects.net]
+module = "models.unet.unet_model"
+class_name = "UNet"
+
+[objects.train_dataset]
+module = "data.loaders.carvana.carvana"
+class_name = "CarvanaDataset"
+
+[objects.test_dataset]
+module = "data.loaders.carvana.carvana"
+class_name = "CarvanaDataset"
+
+[objects.net.params]
+n_channels = 3
+n_classes = 2
+
+[objects.train_dataset.params]
+images_dir = "./train"
+masks_dir = "./train_masks"
+
+[objects.test_dataset.params]
+images_dir = "./train"
+masks_dir = "./train_masks"

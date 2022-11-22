@@ -1,0 +1,117 @@
+{
+    "name": "",
+    "description": "",
+    "version": "",
+    "author": "",
+    "authors": [],
+    "license": "",
+    "url": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/unetplusplus/models/unetplusplus/",
+    "exports": {
+        "classes": [
+            {
+                "class_name": "UNetPlusPlus",
+                "module": "models.unetplusplus",
+                "params": {
+                    "n_channels": 3,
+                    "n_classes": 3,
+                    "channels": [
+                        32,
+                        64,
+                        128,
+                        256,
+                        512
+                    ],
+                    "average": true
+                },
+                "samples": [
+                    {
+                        "sample": {
+                            "class_name": "UNetPlusPlus",
+                            "module": "models.unetplusplus",
+                            "object_key": "net",
+                            "params": {
+                                "n_channels": 3,
+                                "n_classes": 1
+                            }
+                        },
+                        "experiment": {
+                            "objects": {
+                                "net": {
+                                    "class_name": "UNetPlusPlus",
+                                    "module": "models.unetplusplus",
+                                    "object_key": "net",
+                                    "params": {
+                                        "n_channels": 3,
+                                        "n_classes": 1
+                                    }
+                                },
+                                "train_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "train_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                },
+                                "test_dataset": {
+                                    "class_name": "CarvanaDataset",
+                                    "module": "data.loaders.carvana.carvana",
+                                    "object_key": "test_dataset",
+                                    "params": {
+                                        "images_dir": "./train",
+                                        "masks_dir": "./train_masks"
+                                    }
+                                }
+                            },
+                            "experiment": {
+                                "train": [
+                                    {
+                                        "function": "train",
+                                        "module": "trainers.unet_trainer.trainer",
+                                        "params": {
+                                            "net": "{net}",
+                                            "dataset": "{train_dataset}"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "returns": {
+                    "class": "<class 'unetplusplus.models.unetplusplus.unetplusplus.UNetPlusPlus'>",
+                    "module": "unetplusplus.models.unetplusplus.unetplusplus",
+                    "mro": [
+                        "<class 'unetplusplus.models.unetplusplus.unetplusplus.UNetPlusPlus'>",
+                        "<class 'torch.nn.modules.module.Module'>",
+                        "<class 'object'>"
+                    ]
+                }
+            }
+        ],
+        "functions": []
+    },
+    "category": "",
+    "backbone": "",
+    "module_path": [
+        "models",
+        "unetplusplus"
+    ],
+    "hash": "27f4e63741423d493d09da3d49c5403014b25810",
+    "type": "models",
+    "dependencies": {
+        "pip": [
+            {
+                "name": "ipdb",
+                "version": "0.13.9",
+                "last_version": "0.13.9"
+            },
+            {
+                "name": "torch",
+                "version": "1.13.0",
+                "last_version": "1.13.0"
+            }
+        ]
+    }
+}

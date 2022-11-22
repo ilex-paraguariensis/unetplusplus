@@ -1,0 +1,94 @@
+{
+    "name": "",
+    "description": "",
+    "version": "",
+    "author": "",
+    "authors": [],
+    "license": "",
+    "url": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/unetplusplus/trainers/unet_trainer/",
+    "exports": {
+        "classes": [],
+        "functions": [
+            {
+                "function_name": "test",
+                "module": "trainers.unet_trainer",
+                "params": {
+                    "model_class": {
+                        "type": "unknown",
+                        "description": "Unknown type, please add a type annotation or sample value"
+                    },
+                    "dataset": {
+                        "class": "Dataset",
+                        "module": "torch.utils.data.dataset"
+                    }
+                },
+                "errors": [
+                    "Missing parameter model_class. Hint: Add a default value or type annotation",
+                    "Missing parameter dataset.  Hint: <class 'torch.utils.data.dataset.Dataset'>"
+                ]
+            },
+            {
+                "function_name": "train",
+                "module": "trainers.unet_trainer",
+                "params": {
+                    "net": {
+                        "class": "Module",
+                        "module": "torch.nn.modules.module"
+                    },
+                    "dataset": {
+                        "class": "Dataset",
+                        "module": "torch.utils.data.dataset"
+                    },
+                    "epochs": 5,
+                    "batch_size": 1,
+                    "learning_rate": 1e-05,
+                    "val_percent": 0.1,
+                    "save_checkpoint": true,
+                    "img_scale": 0.5,
+                    "amp": false
+                },
+                "errors": [
+                    "Missing parameter net.  Hint: <class 'torch.nn.modules.module.Module'>",
+                    "Missing parameter dataset.  Hint: <class 'torch.utils.data.dataset.Dataset'>"
+                ]
+            }
+        ]
+    },
+    "category": "",
+    "backbone": "",
+    "module_path": [
+        "trainers",
+        "unet_trainer"
+    ],
+    "hash": "aaf33f38688e6a01e03cfa4db6652f890a7acdcc",
+    "type": "trainers",
+    "dependencies": {
+        "pip": [
+            {
+                "name": "matplotlib",
+                "version": "3.6.2",
+                "last_version": "3.6.2"
+            },
+            {
+                "name": "torch",
+                "version": "1.13.0",
+                "last_version": "1.13.0"
+            },
+            {
+                "name": "tqdm",
+                "version": "4.64.1",
+                "last_version": "4.64.1"
+            },
+            {
+                "name": "ipdb",
+                "version": "0.13.9",
+                "last_version": "0.13.9"
+            },
+            {
+                "name": "wandb",
+                "version": "0.13.5",
+                "last_version": "0.13.5"
+            }
+        ]
+    }
+}

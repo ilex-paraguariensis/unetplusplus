@@ -1,0 +1,21 @@
+{
+    "name": "",
+    "description": "",
+    "version": "",
+    "author": "",
+    "authors": [],
+    "license": "",
+    "url": "https://github.com/ilex-paraguariensis/unetplusplus/tree/main/",
+    "experiments": [],
+    "exports": {},
+    "category": "",
+    "backbone": "",
+    "root_module": "",
+    "module_path": [
+        "models",
+        "unet"
+    ],
+    "hash": "",
+    "type": "",
+    "dependencies": {}
+}
